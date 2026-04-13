@@ -9,6 +9,7 @@ from counting import init_counting_db, register_counting
 import economy as econ_module
 from economy import init_economy_db, register_economy
 from purchase import register_purchase
+from join_check import register_join
 
 DB_PATH = os.getenv("OILLY_DB_PATH", "oilly_counts.db")
 
@@ -123,7 +124,7 @@ class OillyBot(commands.Bot):
             active_games=ACTIVE_GAMES,
         )
 
-
+        register_join(self, DB_PATH)
 
 
         @self.tree.command(name="도박채널설정", description="현재 채널을 도박 채널로 설정(미설정이면 전채널 허용)")
