@@ -118,7 +118,7 @@ class JoinView(discord.ui.View):
 def register_join(bot: commands.Bot, db_path: str):
 
     @bot.tree.command(name="참여", description="인원 체크")
-    @app_commands.describe(제목="예: 기업전쟁, 고철수거, 터널작업 등")
+    @app_commands.describe(제목="예: 기업전쟁")
     async def join_cmd(interaction: discord.Interaction, 제목: str):
         embed = build_progress_embed(제목, 0)
         view = JoinView(0)
